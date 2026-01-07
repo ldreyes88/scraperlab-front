@@ -22,7 +22,7 @@ jobs:
 
       - name: Sync files to S3
         run: |
-          aws s3 sync . s3://scraperlab-web.s3-website-us-east-1.amazonaws.com --delete --exclude ".github/*" --exclude ".git/*"
+          aws s3 sync . s3://scraperlab-web --delete --exclude ".github/*" --exclude ".git/*"
 
       - name: Invalidate CloudFront Cache
         run: |
