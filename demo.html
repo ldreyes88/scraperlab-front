@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo | ScraperLab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Outfit', sans-serif; }
+        .bg-gradient-mesh {
+            background-color: #ffffff;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(124, 58, 237, 0.08) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(249, 115, 22, 0.08) 0px, transparent 50%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gradient-mesh text-slate-900 antialiased min-h-screen">
+
+    <header class="fixed w-full z-50 px-6 py-4">
+        <div class="max-w-6xl mx-auto glass-card rounded-2xl px-6 py-3 flex justify-between items-center shadow-xl shadow-indigo-100/20">
+            <a href="index.html" class="text-2xl font-black tracking-tighter">
+                <span class="text-[#4f46e5]">SCRAPER</span><span class="text-[#f97316]">LAB</span>
+            </a>
+            
+            <nav class="hidden md:flex space-x-8 text-sm font-bold text-slate-600">
+                <a href="index.html#servicios" class="hover:text-[#4f46e5] transition">Servicios</a>
+                <a href="precios.html" class="hover:text-[#4f46e5] transition">Precios</a>
+                <a href="demo.html" class="text-[#4f46e5]">Demo</a>
+            </nav>
+    
+            <a href="index.html#contacto" class="bg-slate-900 text-white px-6 py-2 rounded-xl text-sm font-bold hover:scale-105 transition-all shadow-lg shadow-slate-200">
+                Contacto
+            </a>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-20 px-6">
+        <div class="max-w-3xl mx-auto">
+            
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-1.5 mb-4 text-sm font-bold text-[#4f46e5] bg-indigo-50 rounded-full">
+                    🧪 Prueba gratuita
+                </span>
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-slate-900">
+                    Prueba nuestro Scraper
+                </h1>
+                <p class="text-slate-500 max-w-xl mx-auto">
+                    Ingresa la URL de un producto de cualquier marketplace colombiano y extrae sus datos en segundos.
+                </p>
+            </div>
+            
+            <!-- Demo Card -->
+            <div class="glass-card rounded-[2rem] p-8 shadow-2xl shadow-slate-200/50">
+                
+                <!-- Input -->
+                <div class="flex flex-col gap-4 mb-6">
+                    <label class="text-sm font-bold text-slate-700">URL del producto</label>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <input 
+                            type="url" 
+                            id="demo-url" 
+                            placeholder="https://www.mercadolibre.com.co/producto-ejemplo" 
+                            class="flex-1 px-5 py-4 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#4f46e5] focus:border-transparent text-sm"
+                        >
+                        <button 
+                            id="demo-btn"
+                            onclick="runDemo()"
+                            class="bg-[#4f46e5] text-white px-8 py-4 rounded-xl font-bold hover:shadow-xl hover:shadow-indigo-200 transition-all whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                            🔍 Extraer datos
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Marketplaces soportados -->
+                <div class="mb-8">
+                    <p class="text-xs text-slate-400 mb-3">Marketplaces soportados:</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 bg-slate-100 text-slate-600 rounded-lg text-xs font-medium">🛒 MercadoLibre</span>
+                        <span class="px-3 py-1.5 bg-slate-100 text-slate-600 rounded-lg text-xs font-medium">🛍️ Éxito</span>
+                        <span class="px-3 py-1.5 bg-slate-100 text-slate-600 rounded-lg text-xs font-medium">👗 Falabella</span>
+                        <span class="px-3 py-1.5 bg-slate-100 text-slate-600 rounded-lg text-xs font-medium">🏪 Alkosto</span>
+                        <span class="px-3 py-1.5 bg-slate-100 text-slate-600 rounded-lg text-xs font-medium">💻 Ktronix</span>
+                        <span class="px-3 py-1.5 bg-slate-100 text-slate-600 rounded-lg text-xs font-medium">📱 Claro</span>
+                        <span class="px-3 py-1.5 bg-slate-100 text-slate-600 rounded-lg text-xs font-medium">📱 Movistar</span>
+                        <span class="px-3 py-1.5 bg-slate-100 text-slate-600 rounded-lg text-xs font-medium">🍎 Mac Center</span>
+                        <span class="px-3 py-1.5 bg-slate-100 text-slate-600 rounded-lg text-xs font-medium">🍎 iShop</span>
+                        <span class="px-3 py-1.5 bg-slate-100 text-slate-600 rounded-lg text-xs font-medium">🏠 Alkomprar</span>
+                    </div>
+                </div>
+                
+                <!-- Loading -->
+                <div id="demo-loading" class="hidden text-center py-12">
+                    <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-[#4f46e5] border-t-transparent"></div>
+                    <p class="text-slate-500 mt-4">Extrayendo datos del producto...</p>
+                    <p class="text-slate-400 text-sm">Esto puede tomar unos segundos</p>
+                </div>
+                
+                <!-- Error -->
+                <div id="demo-error" class="hidden">
+                    <div class="bg-red-50 border border-red-100 rounded-xl p-6 text-center">
+                        <div class="text-4xl mb-3">😕</div>
+                        <p class="text-red-600 font-bold mb-1">Error al extraer datos</p>
+                        <p id="error-message" class="text-red-500 text-sm"></p>
+                    </div>
+                </div>
+                
+                <!-- Resultado -->
+                <div id="demo-result" class="hidden">
+                    <div class="border-t border-slate-100 pt-6">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
+                                <span class="text-emerald-600 text-xl">✓</span>
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-900">¡Datos extraídos con éxito!</p>
+                                <p id="demo-duration" class="text-xs text-slate-400"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-slate-900 rounded-2xl p-6 text-white">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span id="result-marketplace" class="px-3 py-1 bg-white/10 rounded-lg text-sm font-bold"></span>
+                                <span id="result-stock" class="ml-auto"></span>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-6">
+                                <div>
+                                    <p class="text-slate-400 text-xs uppercase tracking-widest mb-1">Precio Actual</p>
+                                    <p id="result-price" class="text-3xl font-extrabold text-white font-mono"></p>
+                                </div>
+                                <div>
+                                    <p class="text-slate-400 text-xs uppercase tracking-widest mb-1">Precio Original</p>
+                                    <p id="result-original" class="text-xl text-slate-400 line-through font-mono"></p>
+                                </div>
+                            </div>
+                            
+                            <div id="discount-badge" class="hidden mt-4">
+                                <span class="inline-block px-4 py-2 bg-[#f97316] rounded-xl font-bold text-lg">
+                                    🔥 <span id="result-discount"></span> de descuento
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 p-4 bg-indigo-50 rounded-xl text-center">
+                            <p class="text-sm text-slate-600">
+                                ¿Te gustó? <a href="precios.html" class="text-[#4f46e5] font-bold hover:underline">Conoce nuestros planes</a> para automatizar esto.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Tips -->
+            <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                <div class="p-4">
+                    <div class="text-2xl mb-2">📋</div>
+                    <p class="text-sm text-slate-500">Copia la URL completa del producto desde tu navegador</p>
+                </div>
+                <div class="p-4">
+                    <div class="text-2xl mb-2">⏱️</div>
+                    <p class="text-sm text-slate-500">La extracción toma entre 2 y 10 segundos</p>
+                </div>
+                <div class="p-4">
+                    <div class="text-2xl mb-2">🔒</div>
+                    <p class="text-sm text-slate-500">No guardamos las URLs que pruebes</p>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <footer class="py-10 text-center text-slate-400 text-sm">
+        <p>© 2026 ScraperLab. Hecho con precisión técnica.</p>
+    </footer>
+
+    <script>
+        const API_URL = 'https://9h1l0p7qr5.execute-api.us-east-1.amazonaws.com/prod/demo';
+        
+        async function runDemo() {
+            const urlInput = document.getElementById('demo-url');
+            const btn = document.getElementById('demo-btn');
+            const resultDiv = document.getElementById('demo-result');
+            const errorDiv = document.getElementById('demo-error');
+            const loadingDiv = document.getElementById('demo-loading');
+            
+            const url = urlInput.value.trim();
+            if (!url) {
+                urlInput.focus();
+                urlInput.classList.add('ring-2', 'ring-red-300');
+                setTimeout(() => urlInput.classList.remove('ring-2', 'ring-red-300'), 2000);
+                return;
+            }
+            
+            // Reset UI
+            resultDiv.classList.add('hidden');
+            errorDiv.classList.add('hidden');
+            loadingDiv.classList.remove('hidden');
+            btn.disabled = true;
+            btn.textContent = 'Extrayendo...';
+            
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ url })
+                });
+                
+                const data = await response.json();
+                
+                if (!data.success) {
+                    throw new Error(data.error || 'Error desconocido');
+                }
+                
+                // Mostrar resultados
+                const mpName = data.marketplace.charAt(0).toUpperCase() + data.marketplace.slice(1);
+                document.getElementById('result-marketplace').textContent = mpName;
+                
+                document.getElementById('result-price').textContent = data.data.currentPrice 
+                    ? `$${data.data.currentPrice.toLocaleString('es-CO')}` 
+                    : 'No disponible';
+                    
+                document.getElementById('result-original').textContent = data.data.originalPrice 
+                    ? `$${data.data.originalPrice.toLocaleString('es-CO')}` 
+                    : '-';
+                
+                const discountBadge = document.getElementById('discount-badge');
+                if (data.data.discount > 0) {
+                    document.getElementById('result-discount').textContent = `-${data.data.discount}%`;
+                    discountBadge.classList.remove('hidden');
+                } else {
+                    discountBadge.classList.add('hidden');
+                }
+                
+                document.getElementById('result-stock').innerHTML = data.data.inStock 
+                    ? '<span class="bg-emerald-500 text-white px-3 py-1 rounded-full text-xs font-bold">En Stock</span>' 
+                    : '<span class="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">Sin Stock</span>';
+                    
+                document.getElementById('demo-duration').textContent = `Extraído en ${data.durationMs}ms`;
+                
+                loadingDiv.classList.add('hidden');
+                resultDiv.classList.remove('hidden');
+                
+            } catch (error) {
+                loadingDiv.classList.add('hidden');
+                document.getElementById('error-message').textContent = error.message;
+                errorDiv.classList.remove('hidden');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = '🔍 Extraer datos';
+            }
+        }
+        
+        // Enter para enviar
+        document.getElementById('demo-url').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') runDemo();
+        });
+    </script>
+
+</body>
+</html>

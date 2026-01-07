@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precios | ScraperLab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Outfit', sans-serif; }
+        .bg-gradient-mesh {
+            background-color: #ffffff;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(124, 58, 237, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(249, 115, 22, 0.05) 0px, transparent 50%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gradient-mesh text-slate-900 antialiased">
+
+    <header class="fixed w-full z-50 px-6 py-4">
+        <div class="max-w-6xl mx-auto glass-card rounded-2xl px-6 py-3 flex justify-between items-center shadow-xl shadow-indigo-100/20">
+            <a href="index.html" class="text-2xl font-black tracking-tighter">
+                <span class="text-[#4f46e5]">SCRAPER</span><span class="text-[#f97316]">LAB</span>
+            </a>
+            
+            <nav class="hidden md:flex space-x-8 text-sm font-bold text-slate-600">
+                <a href="index.html#servicios" class="hover:text-[#4f46e5] transition">Servicios</a>
+                <a href="precios.html" class="text-[#4f46e5]">Precios</a>
+                <a href="index.html#nosotros" class="hover:text-[#4f46e5] transition">¿Por qué elegirnos?</a>
+            </nav>
+    
+            <button class="bg-slate-900 text-white px-6 py-2 rounded-xl text-sm font-bold hover:scale-105 transition-all shadow-lg shadow-slate-200">
+                Contacto
+            </button>
+        </div>
+    </header>
+
+    <section class="pt-40 pb-10 px-6 text-center">
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-slate-900">
+            Planes de Web Scraping para E-commerce
+        </h1>
+        <p class="text-slate-500 max-w-2xl mx-auto">
+            Extracción de datos de marketplaces colombianos con monitoreo automático de precios. 
+            Todos los planes incluyen soporte técnico y entrega en Excel, CSV o API.
+        </p>
+    </section>
+
+    <section class="py-10 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Plan Starter -->
+                <div class="glass-card p-8 rounded-[2rem] shadow-xl shadow-slate-200/50 hover:-translate-y-2 transition-all duration-500">
+                    <div class="mb-6">
+                        <span class="text-sm font-bold text-slate-400 uppercase tracking-widest">Starter</span>
+                        <div class="mt-2">
+                            <span class="text-4xl font-extrabold text-slate-900">$110.000 COP</span>
+                            <span class="text-slate-400">/mes</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-500 text-sm mb-6">Ideal para emprendedores que inician con monitoreo de precios.</p>
+                    <ul class="space-y-3 mb-8 text-sm">
+                        <li class="flex items-center gap-3">
+                            <span class="text-emerald-500">✓</span>
+                            <span class="text-slate-600">Hasta <strong>500 productos</strong></span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-emerald-500">✓</span>
+                            <span class="text-slate-600">3 Marketplaces Colombia</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-emerald-500">✓</span>
+                            <span class="text-slate-600">Actualización cada 24h</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-emerald-500">✓</span>
+                            <span class="text-slate-600">Exportación Excel</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-300">
+                            <span>✗</span>
+                            <span>Redes sociales</span>
+                        </li>
+                    </ul>
+                    <button class="w-full py-3 rounded-xl font-bold border-2 border-slate-200 text-slate-600 hover:border-[#4f46e5] hover:text-[#4f46e5] transition-all">
+                        Comenzar
+                    </button>
+                </div>
+                
+                <!-- Plan Pro (Destacado) -->
+                <div class="bg-slate-900 p-8 rounded-[2rem] shadow-2xl text-white relative overflow-hidden hover:-translate-y-2 transition-all duration-500">
+                    <div class="absolute top-0 right-0 bg-[#f97316] text-white text-xs font-bold px-4 py-1 rounded-bl-xl">
+                        POPULAR
+                    </div>
+                    <div class="mb-6">
+                        <span class="text-sm font-bold text-slate-400 uppercase tracking-widest">Pro</span>
+                        <div class="mt-2">
+                            <span class="text-4xl font-extrabold">$210.000 COP</span>
+                            <span class="text-slate-400">/mes</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm mb-6">Para negocios que necesitan datos de múltiples fuentes.</p>
+                    <ul class="space-y-3 mb-8 text-sm">
+                        <li class="flex items-center gap-3">
+                            <span class="text-emerald-400">✓</span>
+                            <span class="text-slate-200">Hasta <strong>2,000 productos</strong></span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-emerald-400">✓</span>
+                            <span class="text-slate-200">6 Marketplaces Colombia</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-emerald-400">✓</span>
+                            <span class="text-slate-200">Actualización cada 6h</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-emerald-400">✓</span>
+                            <span class="text-slate-200">Excel + Google Sheets</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-[#f97316]">✓</span>
+                            <span class="text-slate-200"><strong>Facebook Marketplace</strong></span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-emerald-400">✓</span>
+                            <span class="text-slate-200">Alertas por email</span>
+                        </li>
+                    </ul>
+                    <button class="w-full py-3 rounded-xl font-bold bg-[#4f46e5] hover:bg-indigo-500 transition-all shadow-lg">
+                        Elegir Pro
+                    </button>
+                </div>
+                
+                <!-- Plan Enterprise -->
+                <div class="glass-card p-8 rounded-[2rem] shadow-xl shadow-slate-200/50 hover:-translate-y-2 transition-all duration-500">
+                    <div class="mb-6">
+                        <span class="text-sm font-bold text-slate-400 uppercase tracking-widest">Enterprise</span>
+                        <div class="mt-2">
+                            <span class="text-4xl font-extrabold text-slate-900">Custom</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-500 text-sm mb-6">Soluciones a medida para grandes volúmenes de datos.</p>
+                    <ul class="space-y-3 mb-8 text-sm">
+                        <li class="flex items-center gap-3">
+                            <span class="text-emerald-500">✓</span>
+                            <span class="text-slate-600"><strong>Productos ilimitados</strong></span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-emerald-500">✓</span>
+                            <span class="text-slate-600">Todos los Marketplaces</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-emerald-500">✓</span>
+                            <span class="text-slate-600">Actualización en tiempo real</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-emerald-500">✓</span>
+                            <span class="text-slate-600">API dedicada</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-[#f97316]">✓</span>
+                            <span class="text-slate-600"><strong>Redes sociales completas</strong></span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-emerald-500">✓</span>
+                            <span class="text-slate-600">Soporte 24/7 prioritario</span>
+                        </li>
+                    </ul>
+                    <button class="w-full py-3 rounded-xl font-bold border-2 border-slate-200 text-slate-600 hover:border-[#4f46e5] hover:text-[#4f46e5] transition-all">
+                        Contactar
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ o Comparación -->
+    <section class="py-16 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl font-bold text-center mb-10 text-slate-900">Preguntas Frecuentes</h2>
+            <div class="space-y-4">
+                <div class="glass-card rounded-2xl p-6">
+                    <h3 class="font-bold text-slate-900 mb-2">¿Qué marketplaces de Colombia cubren?</h3>
+                    <p class="text-slate-500 text-sm">MercadoLibre, Falabella, Éxito, Alkosto, Linio, Claro, Ishop, Maccenter, Alkomprar, Movistar y más. Si necesitas uno específico, lo agregamos.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6">
+                    <h3 class="font-bold text-slate-900 mb-2">¿Puedo cambiar de plan después?</h3>
+                    <p class="text-slate-500 text-sm">Sí, puedes subir o bajar de plan en cualquier momento. Los cambios se reflejan en tu próximo ciclo de facturación.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6">
+                    <h3 class="font-bold text-slate-900 mb-2">¿Cómo funcionan las alertas?</h3>
+                    <p class="text-slate-500 text-sm">Te enviamos un email o notificación cuando detectamos cambios de precio o stock según las reglas que configures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-6 text-center">
+        <div class="max-w-2xl mx-auto glass-card rounded-[2rem] p-10 shadow-xl">
+            <h2 class="text-2xl font-bold mb-4 text-slate-900">¿Necesitas algo diferente?</h2>
+            <p class="text-slate-500 mb-6">Hablemos para armar un plan personalizado que se ajuste exactamente a lo que buscas.</p>
+            <button class="bg-[#4f46e5] text-white px-8 py-3 rounded-xl font-bold hover:shadow-xl hover:shadow-indigo-200 transition-all">
+                Contactar ahora
+            </button>
+        </div>
+    </section>
+
+    <footer class="py-20 text-center text-slate-400 text-sm">
+        <p>© 2026 ScraperLab. Hecho con precisión técnica.</p>
+    </footer>
+
+</body>
+</html>

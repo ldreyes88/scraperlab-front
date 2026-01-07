@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scraping Ético: Guía de Buenas Prácticas y Legalidad | ScraperLab</title>
+    <meta name="description" content="Aprende cómo realizar web scraping ético en Colombia, evitando bloqueos de IP y resolviendo CAPTCHAs mientras respetas los términos de servicio.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Outfit', sans-serif; }
+        .prose h2 { font-size: 1.875rem; font-weight: 800; margin-top: 2rem; margin-bottom: 1rem; }
+        .prose h3 { font-size: 1.5rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .prose p { margin-bottom: 1rem; line-height: 1.75; color: #64748b; }
+        .prose ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+        .prose li { margin-bottom: 0.5rem; color: #64748b; }
+    </style>
+</head>
+<body class="bg-white text-slate-900">
+
+    <header class="border-b border-slate-100 px-6 py-4">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <a href="../index.html" class="text-2xl font-black">
+                <span class="text-[#4f46e5]">SCRAPER</span><span class="text-[#f97316]">LAB</span>
+            </a>
+            <a href="../blog.html" class="text-sm text-slate-600 hover:text-[#4f46e5]">← Volver al blog</a>
+        </div>
+    </header>
+
+    <article class="max-w-3xl mx-auto px-6 py-16 prose">
+        <span class="text-xs text-slate-400 uppercase tracking-widest">Legalidad • 9 min de lectura</span>
+        <h1 class="text-4xl md:text-5xl font-extrabold mt-4 mb-6 leading-tight">
+            Scraping Ético: Cómo extraer datos respetando la web
+        </h1>
+        
+        <p class="text-xl text-slate-600 mb-8">
+            El **scraping ético y cumplimiento de términos** es el pilar fundamental de nuestra agencia. Extraer datos no debe significar dañar la infraestructura de otros.
+        </p>
+
+        <h2>¿Qué significa hacer scraping de forma ética?</h2>
+        <p>
+            Hacer scraping de forma ética implica recolectar datos públicos de manera que no afecte negativamente al sitio web de origen ni a sus usuarios. Es un equilibrio entre la necesidad de datos y el respeto a la propiedad digital.
+        </p>
+
+        <h2>Técnicas para evitar bloqueos de IP</h2>
+        <p>
+            Los sitios web modernos tienen sistemas de defensa sofisticados. Para **evitar bloqueos de IP**, utilizamos técnicas avanzadas como:
+        </p>
+        <ul>
+            <li><strong>Rotación de Proxies:</strong> Cambiamos la dirección IP en cada petición para simular tráfico de diferentes usuarios.</li>
+            <li><strong>User-Agent Spoofing:</strong> Variamos el identificador del navegador para que el servidor no detecte un patrón de bot.</li>
+            <li><strong>Throttling:</strong> Controlamos la velocidad de las peticiones para no saturar el servidor del marketplace.</li>
+        </ul>
+
+        <h2>El reto de los CAPTCHAs</h2>
+        <p>
+            Los CAPTCHAs son la pesadilla de cualquier scraper. Nuestra tecnología permite **evitar bloqueos de IP y CAPTCHAs** mediante el uso de navegadores headless y servicios de resolución inteligente, asegurando que la extracción masiva de catálogos no se detenga.
+        </p>
+
+        <h2>Cumplimiento de Términos y Condiciones</h2>
+        <p>
+            Cada marketplace (como Mercado Libre, Falabella o Amazon) tiene sus propias reglas. Es vital analizar los términos de servicio y el archivo <code>robots.txt</code> antes de iniciar cualquier proyecto de minería de datos.
+        </p>
+
+        <h3>Buenas prácticas recomendadas:</h3>
+        <ul>
+            <li>Extraer solo datos que sean de dominio público.</li>
+            <li>Identificar tu bot de forma honesta si el sitio lo requiere.</li>
+            <li>Realizar las extracciones en horarios de poco tráfico (madrugada).</li>
+            <li>No almacenar ni distribuir datos personales sensibles.</li>
+        </ul>
+
+        <h2>Consultoría Profesional en Colombia</h2>
+        <p>
+            Si tu empresa en Bogotá, Medellín o cualquier parte de Colombia necesita una **agencia de análisis de datos e-commerce** que trabaje bajo estándares éticos, ScraperLab es tu aliado ideal.
+        </p>
+
+        <div class="mt-12 p-8 bg-indigo-50 rounded-2xl text-center">
+            <h3 class="text-2xl font-bold mb-4">Hazlo bien desde el principio</h3>
+            <a href="../demo.html" class="inline-block bg-[#4f46e5] text-white px-8 py-3 rounded-xl font-bold hover:shadow-xl transition-all">
+                Solicitar Consultoría Ética
+            </a>
+        </div>
+    </article>
+
+    <footer class="py-10 text-center text-slate-400 text-sm border-t border-slate-100 mt-16">
+        <p>© 2026 ScraperLab Colombia - Expertos en Scraping Ético</p>
+    </footer>
+
+</body>
+</html>
