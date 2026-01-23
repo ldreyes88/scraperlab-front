@@ -31,10 +31,45 @@ async function runDemo() {
             body: JSON.stringify({ url })
         });
 
-        const data = await response.json();
+        // ✅ NUEVO: Verificar si la respuesta HTTP es exitosa
+        if (!response.ok) {
+            let errorMessage = `Error HTTP ${response.status}`;
+            let errorData = null;
+            
+            try {
+                // Intentar parsear el cuerpo del error
+                errorData = await response.json();
+                if (errorData.error) {
+                    errorMessage = errorData.error;
+                }
+            } catch (parseError) {
+                // Si no se puede parsear JSON, usar mensaje genérico
+                console.warn('No se pudo parsear respuesta de error:', parseError);
+            }
+            
+            throw new Error(errorMessage);
+        }
+
+        // ✅ NUEVO: Verificar que response.json() funciona
+        let data;
+        try {
+            data = await response.json();
+        } catch (jsonError) {
+            throw new Error('Error al procesar la respuesta del servidor');
+        }
+
+        // ✅ NUEVO: Verificar estructura de la respuesta
+        if (!data || typeof data !== 'object') {
+            throw new Error('Respuesta del servidor inválida');
+        }
 
         if (!data.success) {
-            throw new Error(data.error || 'Error desconocido');
+            throw new Error(data.error || 'Error desconocido en el servidor');
+        }
+
+        // Verificar que los datos necesarios existen
+        if (!data.data) {
+            throw new Error('No se encontraron datos del producto');
         }
 
         // Mostrar resultados
@@ -68,8 +103,23 @@ async function runDemo() {
 
     } catch (error) {
         loadingDiv.classList.add('hidden');
-        document.getElementById('error-message').textContent = error.message;
+        
+        // ✅ NUEVO: Mejor manejo de diferentes tipos de error
+        let errorMessage = error.message;
+        
+        if (error.name === 'TypeError' && error.message.includes('fetch')) {
+            errorMessage = 'Error de conexión. Verifica tu conexión a internet.';
+        } else if (error.message.includes('Failed to fetch')) {
+            errorMessage = 'No se pudo conectar con el servidor. Inténtalo de nuevo.';
+        } else if (error.message.includes('CORS')) {
+            errorMessage = 'Error de configuración del servidor. Contacta al administrador.';
+        }
+        
+        document.getElementById('error-message').textContent = errorMessage;
         errorDiv.classList.remove('hidden');
+        
+        // ✅ NUEVO: Log para debugging
+        console.error('Error en demo:', error);
     } finally {
         btn.disabled = false;
         btn.textContent = '🔍 Extraer datos';
