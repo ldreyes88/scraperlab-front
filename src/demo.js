@@ -24,6 +24,16 @@ async function runDemo() {
     btn.disabled = true;
     btn.textContent = 'Extrayendo...';
 
+    // ✅ NUEVO: Deseleccionar checkbox de lista de URLs
+    const useUrlListCheckbox = document.getElementById('use-url-list');
+    if (useUrlListCheckbox.checked) {
+        useUrlListCheckbox.checked = false;
+        // Ocultar la sección de URLs si estaba visible
+        document.getElementById('url-list-section').classList.add('hidden');
+        document.getElementById('url-list-container').innerHTML = '';
+        document.getElementById('url-list-container').classList.add('hidden');
+    }
+
     try {
         const response = await fetch(API_URL, {
             method: 'POST',
@@ -174,8 +184,6 @@ function processUrl(url) {
 // Función para cargar URL en el input sin procesar automáticamente
 function loadUrlToInput(url) {
     document.getElementById('demo-url').value = url;
-    // Opcional: hacer foco en el input para que el usuario pueda editar si quiere
-    document.getElementById('demo-url').focus();
 }
 
 // Inicializar cuando el DOM esté listo
